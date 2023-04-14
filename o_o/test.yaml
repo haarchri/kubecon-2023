@@ -33,9 +33,10 @@
 apiVersion: kms.aws.upbound.io/v1beta1
 kind: Key
 metadata:
-  name: kubecon-2023
+  name: kubecon-2023-observe
+  annotations:
+    crossplane.io/external-name: 9e4336ca-7ad1-48ba-96b8-0917abdb2027
 spec:
+  managementPolicy: ObserveOnly
   forProvider:
     region: us-west-1
-    description: Created with Crossplane
-    deletionWindowInDays: 7
