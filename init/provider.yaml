@@ -1,0 +1,16 @@
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-aws
+spec:
+  package: docker.io/haarchri/official-provider-aws:v0.33.0-observe-only
+  controllerConfigRef:
+    name: controller-config-observe-only
+---
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: controller-config-observe-only
+spec:
+  args:
+    - --enable-management-policies
