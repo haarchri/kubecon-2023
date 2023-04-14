@@ -68,6 +68,10 @@ kubectl apply -f ./init/pv.yaml
 helm install crossplane \
     https://charts.crossplane.io/stable/crossplane-1.11.3.tgz \
     --namespace crossplane-system \
+    --resourcesCrossplane.limits.cpu=2 \
+    --resourcesCrossplane.limits.memory=2Gi \
+    --resourcesCrossplane.requests.cpu=1 \
+    --resourcesCrossplane.requests.memory=1Gi \
     --wait \
     --set packageCache.pvc=package-cache \
     --set args='{"--enable-environment-configs", "--debug"}' \

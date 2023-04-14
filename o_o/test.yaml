@@ -1,35 +1,35 @@
-apiVersion: rds.aws.upbound.io/v1beta1
-kind: Instance
-metadata:
-  name: kubecon-2023
-spec:
-  forProvider:
-    region: us-west-1
-    allocatedStorage: 20
-    autoMinorVersionUpgrade: true
-    backupRetentionPeriod: 14
-    instanceClass: db.t3.micro
-    name: example
-    engine: postgres
-    engineVersion: "13.7"
-    username: adminuser
-    autoGeneratePassword: true
-    passwordSecretRef:
-      key: password
-      name: example-dbinstance
-      namespace: crossplane-system
-    backupWindow: "09:46-10:16"
-    maintenanceWindow: "Mon:00:00-Mon:03:00"
-    publiclyAccessible: false
-    skipFinalSnapshot: true
-    storageEncrypted: true
-    storageType: gp2
-    kmsKeyIdRef:
-      name: kubecon-2023
-  writeConnectionSecretToRef:
-    name: example-dbinstance-out
-    namespace: crossplane-system
----
+# apiVersion: rds.aws.upbound.io/v1beta1
+# kind: Instance
+# metadata:
+#   name: kubecon-2023
+# spec:
+#   forProvider:
+#     region: us-west-1
+#     allocatedStorage: 20
+#     autoMinorVersionUpgrade: true
+#     backupRetentionPeriod: 14
+#     instanceClass: db.t3.micro
+#     name: example
+#     engine: postgres
+#     engineVersion: "13.7"
+#     username: adminuser
+#     autoGeneratePassword: true
+#     passwordSecretRef:
+#       key: password
+#       name: example-dbinstance
+#       namespace: crossplane-system
+#     backupWindow: "09:46-10:16"
+#     maintenanceWindow: "Mon:00:00-Mon:03:00"
+#     publiclyAccessible: false
+#     skipFinalSnapshot: true
+#     storageEncrypted: true
+#     storageType: gp2
+#     kmsKeyIdRef:
+#       name: kubecon-2023
+#   writeConnectionSecretToRef:
+#     name: example-dbinstance-out
+#     namespace: crossplane-system
+# ---
 apiVersion: kms.aws.upbound.io/v1beta1
 kind: Key
 metadata:

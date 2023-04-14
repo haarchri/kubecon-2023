@@ -3,7 +3,7 @@ kind: Provider
 metadata:
   name: provider-aws
 spec:
-  package: docker.io/haarchri/official-provider-aws:v0.33.0-observe-only
+  package: haarchri/provider-aws:v0.33.0-rc.1.41.gd858eccb
   controllerConfigRef:
     name: controller-config-observe-only
 ---
