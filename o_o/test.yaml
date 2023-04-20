@@ -1,42 +1,11 @@
-# apiVersion: rds.aws.upbound.io/v1beta1
-# kind: Instance
-# metadata:
-#   name: kubecon-2023
-# spec:
-#   forProvider:
-#     region: us-west-1
-#     allocatedStorage: 20
-#     autoMinorVersionUpgrade: true
-#     backupRetentionPeriod: 14
-#     instanceClass: db.t3.micro
-#     name: example
-#     engine: postgres
-#     engineVersion: "13.7"
-#     username: adminuser
-#     autoGeneratePassword: true
-#     passwordSecretRef:
-#       key: password
-#       name: example-dbinstance
-#       namespace: crossplane-system
-#     backupWindow: "09:46-10:16"
-#     maintenanceWindow: "Mon:00:00-Mon:03:00"
-#     publiclyAccessible: false
-#     skipFinalSnapshot: true
-#     storageEncrypted: true
-#     storageType: gp2
-#     kmsKeyIdRef:
-#       name: kubecon-2023
-#   writeConnectionSecretToRef:
-#     name: example-dbinstance-out
-#     namespace: crossplane-system
-# ---
-apiVersion: kms.aws.upbound.io/v1beta1
-kind: Key
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: VPC
 metadata:
-  name: kubecon-2023-observe
+  name: kubecon-vpc
   annotations:
-    crossplane.io/external-name: 9e4336ca-7ad1-48ba-96b8-0917abdb2027
+    crossplane.io/external-name: vpc-0bbd17c67fe8cb102
 spec:
+  forProvider:
   managementPolicy: ObserveOnly
   forProvider:
-    region: us-west-1
+    region: eu-central-1

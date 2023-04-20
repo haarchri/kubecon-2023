@@ -3,7 +3,7 @@ kind: Provider
 metadata:
   name: provider-aws
 spec:
-  package: haarchri/provider-aws:v0.33.0-rc.1.41.gd858eccb
+  package: ulucinar/provider-aws:v0.34.0-rc.0.10.gad098f2c
   controllerConfigRef:
     name: controller-config-observe-only
 ---
