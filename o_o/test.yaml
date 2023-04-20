@@ -2,6 +2,8 @@ apiVersion: ec2.aws.upbound.io/v1beta1
 kind: VPC
 metadata:
   name: kubecon-vpc
+  labels:
+    kubecon: "2023"
   annotations:
     crossplane.io/external-name: vpc-0bbd17c67fe8cb102
 spec:
